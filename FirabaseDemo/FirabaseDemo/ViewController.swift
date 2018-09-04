@@ -9,14 +9,11 @@
 import UIKit
 import FirebaseDatabase
 
-enum DataBaseType: String {
-    case member
-    case posts
-}
-
 class ViewController: UIViewController {
     
     var ref: DatabaseReference!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +25,6 @@ class ViewController: UIViewController {
 //        getUser()
         
 //        setArticle()
-        
-//        getArticle()
         
 //        queryArticle()
         
@@ -76,13 +71,13 @@ class ViewController: UIViewController {
         
         let key = ref.child("posts").childByAutoId().key
         
-        let articleContent = "TTTTTTestttttt"
+        let articleContent = "TTTTTTestttttt22222"
         
         let articleId = key
         
         let articleTag = "八卦"
         
-        let articleTitle = "HIIIIIII"
+        let articleTitle = "HIIIIIII222222"
         
         let author = UserManager.shared.getUserKey()
         
@@ -92,11 +87,11 @@ class ViewController: UIViewController {
             .child(DataBaseType.posts.rawValue)
             .child(key)
             .setValue(["article_content": articleContent,
-                                                      "article_id": articleId,
-                                                      "article_tag": articleTag,
-                                                      "article_title": articleTitle,
-                                                      "author": author,
-                                                      "created_time": createdTime])
+                       "article_id": articleId,
+                       "article_tag": articleTag,
+                       "article_title": articleTitle,
+                       "author": author,
+                       "created_time": createdTime])
     }
     
     func getArticle(key: String) {

@@ -14,6 +14,9 @@
 		9B5C69A5213D039800F4351E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B5C69A3213D039800F4351E /* LaunchScreen.storyboard */; };
 		9B5C69AD213D03F200F4351E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B5C69AC213D03F100F4351E /* GoogleService-Info.plist */; };
 		9B5C69AF213D1D9500F4351E /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69AE213D1D9500F4351E /* UserManager.swift */; };
+		9B5C69B3213E19CF00F4351E /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69B2213E19CF00F4351E /* LogInViewController.swift */; };
+		9B5C69B5213E273B00F4351E /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69B4213E273B00F4351E /* FirebaseManager.swift */; };
+		9B5C69B7213E3B5F00F4351E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69B6213E3B5F00F4351E /* PostViewController.swift */; };
 		A4E9163270C3180195F59587 /* Pods_FirabaseDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6554881F7CA078B679D28504 /* Pods_FirabaseDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +31,9 @@
 		9B5C69A6213D039800F4351E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B5C69AC213D03F100F4351E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9B5C69AE213D1D9500F4351E /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		9B5C69B2213E19CF00F4351E /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		9B5C69B4213E273B00F4351E /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		9B5C69B6213E3B5F00F4351E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		E41A087B786ED207C6ABF13C /* Pods-FirabaseDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirabaseDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirabaseDemo/Pods-FirabaseDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E95696163760457D94114ACC /* Pods-FirabaseDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirabaseDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirabaseDemo/Pods-FirabaseDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,7 +87,10 @@
 				9B5C69A3213D039800F4351E /* LaunchScreen.storyboard */,
 				9B5C69A6213D039800F4351E /* Info.plist */,
 				9B5C69AC213D03F100F4351E /* GoogleService-Info.plist */,
+				9B5C69B2213E19CF00F4351E /* LogInViewController.swift */,
+				9B5C69B6213E3B5F00F4351E /* PostViewController.swift */,
 				9B5C69AE213D1D9500F4351E /* UserManager.swift */,
+				9B5C69B4213E273B00F4351E /* FirebaseManager.swift */,
 			);
 			path = FirabaseDemo;
 			sourceTree = "<group>";
@@ -211,7 +220,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B5C69B7213E3B5F00F4351E /* PostViewController.swift in Sources */,
+				9B5C69B3213E19CF00F4351E /* LogInViewController.swift in Sources */,
 				9B5C69AF213D1D9500F4351E /* UserManager.swift in Sources */,
+				9B5C69B5213E273B00F4351E /* FirebaseManager.swift in Sources */,
 				9B5C699D213D039600F4351E /* ViewController.swift in Sources */,
 				9B5C699B213D039600F4351E /* AppDelegate.swift in Sources */,
 			);
