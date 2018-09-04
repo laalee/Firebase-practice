@@ -1,5 +1,5 @@
 //
-//  AddPostViewController.swift
+//  AddViewController.swift
 //  FirabaseDemo
 //
 //  Created by HsinYuLi on 2018/9/4.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddPostViewController: UIViewController {
+class AddViewController: UIViewController {
     
     @IBOutlet weak var titleTextView: UITextView!
     
@@ -18,6 +18,8 @@ class AddPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setBorder()
     }
 
     @IBAction func postClick(_ sender: Any) {
@@ -28,16 +30,24 @@ class AddPostViewController: UIViewController {
         
         guard let tag = tagSegment.titleForSegment(at: tagSegment.selectedSegmentIndex) else { return }
         
-        FirebaseManager.shared.postArticle(title: title, content: content, tag: tag)
+        FirebaseManager.shared.addPost(title: title, content: content, tag: tag)
         
         titleTextView.text = ""
         
         contentTextView.text = ""
     }
     
-    @IBAction func cancelClick(_ sender: Any) {
+    func setBorder() {
         
-        print("cancel")
+        titleTextView.layer.borderWidth = 1
+        titleTextView.layer.borderColor = UIColor.lightGray.cgColor
+        titleTextView.clipsToBounds = true
+        titleTextView.layer.cornerRadius = 5
+        
+        contentTextView.layer.borderWidth = 1
+        contentTextView.layer.borderColor = UIColor.lightGray.cgColor
+        contentTextView.clipsToBounds = true
+        contentTextView.layer.cornerRadius = 5
     }
     
 }

@@ -9,64 +9,59 @@
 import Foundation
 import FirebaseDatabase
 
-enum DataBaseType: String {
-    case member
-    case posts
-}
-
-protocol FirebaseDelegate: AnyObject {
-    
-    func signUpComplete(result: Bool)
-    
-    func logInComplete(result: Bool)
-}
-
 class FirebaseManager {
     
     static let shared = FirebaseManager()
-    
-    var firebaseDelegate: FirebaseDelegate?
-    
+
     var ref: DatabaseReference = Database.database().reference()
     
-    func signUpUser(userName: String, userEmail: String) {
+    func signUpUser(
+        userName: String,
+        userEmail: String,
+        success: @escaping () -> Void,
+        failure: @escaping (String) -> Void
+        ) {
         
-        ref.child(DataBaseType.member.rawValue)
+        ref.child("member")
             .queryOrdered(byChild: "user_email")
             .queryEqual(toValue: userEmail)
             .observeSingleEvent(of: .value) { (snapshot) in
                 
                 guard (snapshot.value as? NSDictionary) == nil else {
                     
-                    self.firebaseDelegate?.signUpComplete(result: false)
+                    failure("User exists.")
                     
                     return
                 }
                 
-                let key = self.ref.child(DataBaseType.member.rawValue).childByAutoId().key
+                let key = self.ref.child("member").childByAutoId().key
                 
                 self.ref
-                    .child(DataBaseType.member.rawValue)
+                    .child("member")
                     .child(key)
                     .setValue(["user_name": userName, "user_email": userEmail])
                 
                 UserManager.shared.setUserKey(key: key)
                 UserManager.shared.setUserEmail(key: userEmail)
 
-                self.firebaseDelegate?.signUpComplete(result: true)
+                success()
         }
     }
     
-    func logInUser(userEmail: String) {
+    func logInUser(
+        userEmail: String,
+        success: @escaping () -> Void,
+        failure: @escaping (String) -> Void
+        ) {
         
-        ref.child(DataBaseType.member.rawValue)
+        ref.child("member")
             .queryOrdered(byChild: "user_email")
             .queryEqual(toValue: userEmail)
             .observeSingleEvent(of: .value) { (snapshot) in
                 
                 guard let value = snapshot.value as? NSDictionary else {
                     
-                    self.firebaseDelegate?.logInComplete(result: false)
+                    failure("User not exist.")
                     
                     return
                 }
@@ -76,11 +71,89 @@ class FirebaseManager {
                 UserManager.shared.setUserKey(key: userKey)
                 UserManager.shared.setUserEmail(key: userEmail)
                 
-                self.firebaseDelegate?.logInComplete(result: true)
+                success()
         }
     }
     
-    func postArticle(title: String, content: String, tag: String) {
+    func getAllPosts(
+        success: @escaping ([Post]) -> Void,
+        failure: @escaping (String) -> Void
+        ) {
+        
+        var result: [Post] = []
+        
+        ref.child("posts")
+            .observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                guard let value = snapshot.value as? NSDictionary else {
+                    
+                    failure("No Post")
+                    
+                    return
+                }
+                
+                for postId in value.allKeys {
+                    
+                    guard let post = value[postId] as? NSDictionary else { return }
+                    
+                    let newPost = self.transformPost(post: post)
+                    
+                    result.append(newPost)
+                }
+                
+                success(result)
+            })
+    }
+
+    func queryPost(
+        key: String,
+        value: String,
+        success: @escaping ([Post]) -> Void,
+        failure: @escaping (String) -> Void
+        ) {
+        
+        var result: [Post] = []
+        
+        ref.child("posts")
+            .queryOrdered(byChild: key)
+            .queryEqual(toValue: value)
+            .observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                guard let value = snapshot.value as? NSDictionary else {
+                    
+                    failure("No Post in: \(key)")
+                    
+                    return
+                }
+                
+                for postId in value.allKeys {
+                    
+                    guard let post = value[postId] as? NSDictionary else { return }
+                    
+                    let newPost = self.transformPost(post: post)
+                    
+                    result.append(newPost)
+                }
+                
+                success(result)
+            })
+    }
+    
+    func transformPost(post: NSDictionary) -> Post {
+        let post = Post(
+            article_content: post["article_content"] as? String ?? "",
+            article_id: post["article_id"] as? String ?? "",
+            article_tag: post["article_tag"] as? String ?? "",
+            article_title: post["article_title"] as? String ?? "",
+            author: post["author"] as? String ?? "",
+            author_tag: post["author_tag"] as? String ?? "",
+            created_time: post["created_time"] as? String ?? ""
+        )
+        
+        return post
+    }
+    
+    func addPost(title: String, content: String, tag: String) {
         
         let key = ref.child("posts").childByAutoId().key
         
@@ -119,7 +192,7 @@ class FirebaseManager {
             , failure: @escaping () -> Void
         ) {
         
-        ref.child(DataBaseType.member.rawValue)
+        ref.child("member")
             .queryOrdered(byChild: "user_email")
             .queryEqual(toValue: userEmail)
             .observeSingleEvent(of: .value) { (snapshot) in
@@ -149,7 +222,7 @@ class FirebaseManager {
             failure: @escaping (String) -> Void
         ) {
         
-        ref.child(DataBaseType.member.rawValue)
+        ref.child("member")
             .child(userKey)
             .observeSingleEvent(of: .value, with: { (snapshot) in
                 
@@ -231,7 +304,7 @@ class FirebaseManager {
         
         guard let userKey = UserManager.shared.getUserKey() else { return }
 
-        ref.child(DataBaseType.member.rawValue)
+        ref.child("member")
             .child(userKey)
             .child("friend")
             .queryOrdered(byChild: "invite_status")

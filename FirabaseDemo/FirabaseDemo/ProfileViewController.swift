@@ -33,10 +33,6 @@ class ProfileViewController: UIViewController {
             name: NSNotification.Name("UPDATE_FRIEND"),
             object: nil
         )
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         setProfile()
         
@@ -44,6 +40,8 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func updateFriendList(notification: Notification) {
+        
+        setProfile()
         
         gatFriends()
     }
@@ -137,7 +135,7 @@ extension ProfileViewController: UITableViewDataSource {
             return cell
         }
         
-        cell.nameLabel.text = friend.name
+        cell.nameLabel.text = "\(friend.name) (\(friend.email))"
         
         switch friend.invite_status {
         case "valid":
