@@ -17,12 +17,22 @@ class UserManager {
         UserDefaults.standard.set(key, forKey: "userKey")
     }
     
+    func setUserEmail(key: String) {
+        
+        UserDefaults.standard.set(key, forKey: "userEmail")
+    }
+    
     func getUserKey() -> String? {
         
-        guard let userKey = UserDefaults.standard.string(forKey: "userKey") else {
-            return nil
-        }
+        let userKey = UserDefaults.standard.string(forKey: "userKey")
         
         return userKey
+    }
+    
+    func getUserEmail() -> String? {
+        
+        let userEmail = UserDefaults.standard.string(forKey: "userEmail")
+        
+        return userEmail
     }
 }

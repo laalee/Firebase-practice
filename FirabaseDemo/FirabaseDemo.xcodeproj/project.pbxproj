@@ -16,7 +16,14 @@
 		9B5C69AF213D1D9500F4351E /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69AE213D1D9500F4351E /* UserManager.swift */; };
 		9B5C69B3213E19CF00F4351E /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69B2213E19CF00F4351E /* LogInViewController.swift */; };
 		9B5C69B5213E273B00F4351E /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69B4213E273B00F4351E /* FirebaseManager.swift */; };
-		9B5C69B7213E3B5F00F4351E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69B6213E3B5F00F4351E /* PostViewController.swift */; };
+		9B5C69B7213E3B5F00F4351E /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69B6213E3B5F00F4351E /* AddPostViewController.swift */; };
+		9B5C69B9213E619600F4351E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69B8213E619600F4351E /* SearchViewController.swift */; };
+		9B5C69BC213E796000F4351E /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69BA213E796000F4351E /* FriendTableViewCell.swift */; };
+		9B5C69BD213E796000F4351E /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5C69BB213E796000F4351E /* FriendTableViewCell.xib */; };
+		9B5C69BF213E7B2700F4351E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69BE213E7B2700F4351E /* ProfileViewController.swift */; };
+		9B5C69C1213E872500F4351E /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69C0213E872500F4351E /* Member.swift */; };
+		9B5C69C3213E92DD00F4351E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69C2213E92DD00F4351E /* TabBarViewController.swift */; };
+		9B5C69C5213EEE5D00F4351E /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C69C4213EEE5C00F4351E /* PostsViewController.swift */; };
 		A4E9163270C3180195F59587 /* Pods_FirabaseDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6554881F7CA078B679D28504 /* Pods_FirabaseDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +40,14 @@
 		9B5C69AE213D1D9500F4351E /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		9B5C69B2213E19CF00F4351E /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		9B5C69B4213E273B00F4351E /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		9B5C69B6213E3B5F00F4351E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		9B5C69B6213E3B5F00F4351E /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		9B5C69B8213E619600F4351E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9B5C69BA213E796000F4351E /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		9B5C69BB213E796000F4351E /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
+		9B5C69BE213E7B2700F4351E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9B5C69C0213E872500F4351E /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		9B5C69C2213E92DD00F4351E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		9B5C69C4213EEE5C00F4351E /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		E41A087B786ED207C6ABF13C /* Pods-FirabaseDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirabaseDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirabaseDemo/Pods-FirabaseDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E95696163760457D94114ACC /* Pods-FirabaseDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirabaseDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirabaseDemo/Pods-FirabaseDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,9 +102,16 @@
 				9B5C69A6213D039800F4351E /* Info.plist */,
 				9B5C69AC213D03F100F4351E /* GoogleService-Info.plist */,
 				9B5C69B2213E19CF00F4351E /* LogInViewController.swift */,
-				9B5C69B6213E3B5F00F4351E /* PostViewController.swift */,
+				9B5C69C2213E92DD00F4351E /* TabBarViewController.swift */,
+				9B5C69C4213EEE5C00F4351E /* PostsViewController.swift */,
+				9B5C69B6213E3B5F00F4351E /* AddPostViewController.swift */,
+				9B5C69B8213E619600F4351E /* SearchViewController.swift */,
+				9B5C69BE213E7B2700F4351E /* ProfileViewController.swift */,
+				9B5C69BA213E796000F4351E /* FriendTableViewCell.swift */,
+				9B5C69BB213E796000F4351E /* FriendTableViewCell.xib */,
 				9B5C69AE213D1D9500F4351E /* UserManager.swift */,
 				9B5C69B4213E273B00F4351E /* FirebaseManager.swift */,
+				9B5C69C0213E872500F4351E /* Member.swift */,
 			);
 			path = FirabaseDemo;
 			sourceTree = "<group>";
@@ -163,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B5C69BD213E796000F4351E /* FriendTableViewCell.xib in Resources */,
 				9B5C69A5213D039800F4351E /* LaunchScreen.storyboard in Resources */,
 				9B5C69AD213D03F200F4351E /* GoogleService-Info.plist in Resources */,
 				9B5C69A2213D039800F4351E /* Assets.xcassets in Resources */,
@@ -220,12 +242,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B5C69B7213E3B5F00F4351E /* PostViewController.swift in Sources */,
+				9B5C69C5213EEE5D00F4351E /* PostsViewController.swift in Sources */,
+				9B5C69B7213E3B5F00F4351E /* AddPostViewController.swift in Sources */,
+				9B5C69B9213E619600F4351E /* SearchViewController.swift in Sources */,
+				9B5C69C3213E92DD00F4351E /* TabBarViewController.swift in Sources */,
 				9B5C69B3213E19CF00F4351E /* LogInViewController.swift in Sources */,
 				9B5C69AF213D1D9500F4351E /* UserManager.swift in Sources */,
 				9B5C69B5213E273B00F4351E /* FirebaseManager.swift in Sources */,
 				9B5C699D213D039600F4351E /* ViewController.swift in Sources */,
+				9B5C69BF213E7B2700F4351E /* ProfileViewController.swift in Sources */,
 				9B5C699B213D039600F4351E /* AppDelegate.swift in Sources */,
+				9B5C69BC213E796000F4351E /* FriendTableViewCell.swift in Sources */,
+				9B5C69C1213E872500F4351E /* Member.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
