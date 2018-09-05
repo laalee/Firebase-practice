@@ -71,6 +71,7 @@ class ProfileViewController: UIViewController {
         
         getFriends(tag: "pending_confirm")
         
+        
         friendTableView.reloadData()
     }
 
@@ -168,6 +169,8 @@ extension ProfileViewController: UITableViewDataSource {
             action: #selector(yesButtonClicked(sender:)),
             for: .touchUpInside
         )
+        
+        cell.noButton.tag = indexPath.row
         
         cell.noButton.addTarget(
             self,

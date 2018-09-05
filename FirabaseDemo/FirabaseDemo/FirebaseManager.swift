@@ -320,7 +320,8 @@ class FirebaseManager {
                 
                 for index in 0..<value.allKeys.count {
                     
-                    guard let userId = value.allKeys[index] as? String else { return }
+                    guard let userId = value.allKeys[index] as? String else {
+                        return }
                     
                     self.searchMember(
                         userKey: userId,

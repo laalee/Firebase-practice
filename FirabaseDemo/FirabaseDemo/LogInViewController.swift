@@ -34,6 +34,7 @@ class LogInViewController: UIViewController {
                 userEmail: mail,
                 success: {
                     self.showAlert(message: "Signup Success.")
+                    self.sendNotification()
                 },
                 failure: { error in
                     self.showAlert(message: error)
@@ -44,6 +45,7 @@ class LogInViewController: UIViewController {
                 userEmail: mail,
                 success: {
                     self.showAlert(message: "Login Success.")
+                    self.sendNotification()
                 },
                 failure: { error in
                     self.showAlert(message: error)
@@ -60,5 +62,12 @@ class LogInViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func sendNotification() {
+        NotificationCenter.default.post(
+            name: NSNotification.Name("UPDATE_FRIEND"),
+            object: nil
+        )
     }
 }
